@@ -1,6 +1,4 @@
 
-%%writefile app.py
-
 import streamlit as st
 from graficos import *
 
