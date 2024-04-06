@@ -9,7 +9,6 @@ Original file is located at
 # **CÓDIGO PARA PEGAR OS DADOS DE DASHBOARD E GRÁFICOS E EXIBIR**
 """
 
-pip install -r requirements.txt
 
 import urllib
 
