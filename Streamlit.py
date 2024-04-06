@@ -17,7 +17,6 @@ print("SENHA/Enpoint IP para o túnel local:",urllib.request.urlopen('https://ip
 
 # Commented out IPython magic to ensure Python compatibility.
 
-%%writefile app.py
 
 import streamlit as st
 from graficos import *
