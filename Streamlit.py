@@ -89,7 +89,7 @@ with aba6:
   st.plotly_chart(grafico_crimes_por_decada, use_container_width=True)
 
 
-streamlit run streamlit & npx localtunnel --port 8501
+streamlit run streamlit
 
 
 """34.139.213.187"""
