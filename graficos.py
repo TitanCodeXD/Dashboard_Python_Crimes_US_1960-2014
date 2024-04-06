@@ -28,7 +28,7 @@ total_crimes = "{:,}".format(df['Total'].sum())
 #df['Ano'] = df['Ano'].str[:4]
 #print(df)
 
-display(df)#Display na base de dados para vizualização inicial
+#display(df)#Display na base de dados para vizualização inicial
 
 # Definir função para formatar números
 def format_number(value):
