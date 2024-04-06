@@ -117,6 +117,8 @@ grafico_crimes_por_decada = px.bar(
 # Testando exibíção do gráfico
 #grafico_crimes_por_decada.show()
 
+df['Ano'] = pd.to_datetime(df['Ano'], format='%Y')
+
 # Calcular a soma de crimes e população para cada ano
 df_agrupado = df.groupby('Ano').agg({'Populacao': 'sum', 'Total': 'sum'}).reset_index()
 
