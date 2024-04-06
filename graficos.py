@@ -11,7 +11,6 @@ Original file is located at
 
 import pandas as pd
 import plotly.express as px
-from IPython.display import display
 
 # Carregando a nossa base de dados, como está em csv, não precisaremos importar json, apenas o pandas para essa leitura.
 caminho_arquivo = "US_Crime_Rates_1960_2014 1.csv"
@@ -31,7 +30,7 @@ df['Ano'] = df['Ano'].dt.strftime('%Y')
 
 
 
-display(df) #Display na base de dados para vizualização inicial
+#display(df) #Display na base de dados para vizualização inicial
 
 # Definir função para formatar números
 def format_number(value):
