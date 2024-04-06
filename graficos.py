@@ -8,7 +8,7 @@ Original file is located at
 
 # Código Para gerar os gráficos e dashboards
 """
-pip install -r requirements.txt
+# pip install -r requirements.txt
 import pandas as pd
 import plotly.express as px
 
