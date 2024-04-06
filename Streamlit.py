@@ -9,8 +9,8 @@ Original file is located at
 # **CÓDIGO PARA PEGAR OS DADOS DE DASHBOARD E GRÁFICOS E EXIBIR**
 """
 
-!pip install -q streamlit
-!npm install localtunnel
+pip install -q streamlit
+npm install localtunnel
 
 import urllib
 
@@ -94,6 +94,6 @@ print("SENHA/Enpoint IP para o túnel local:",urllib.request.urlopen('https://ip
 # 
 #
 
-!streamlit run app.py &>/content/logs.txt & npx localtunnel --port 8501
+streamlit run app.py &>/content/logs.txt & npx localtunnel --port 8501
 
 """34.139.213.187"""
