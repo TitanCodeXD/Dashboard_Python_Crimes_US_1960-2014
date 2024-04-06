@@ -36,7 +36,7 @@
         "from IPython.display import display\n",
         "\n",
         "# Carregando a nossa base de dados, como está em csv, não precisaremos importar json, apenas o pandas para essa leitura.\n",
-        "caminho_arquivo = \"/content/US_Crime_Rates_1960_2014 1.csv\"\n",
+        "caminho_arquivo = \"US_Crime_Rates_1960_2014 1.csv"\n",
         "df = pd.read_csv(caminho_arquivo)\n",
         "\n",
         "#print(df)"
