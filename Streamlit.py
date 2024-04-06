@@ -89,7 +89,7 @@ with aba6:
   st.plotly_chart(grafico_crimes_por_decada, use_container_width=True)
 
 
-streamlit run Streamlit.py
+streamlit run Streamlit
 
 
 """34.139.213.187"""
