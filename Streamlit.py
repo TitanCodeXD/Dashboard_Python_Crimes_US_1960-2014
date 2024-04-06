@@ -9,7 +9,7 @@ Original file is located at
 # **CÓDIGO PARA PEGAR OS DADOS DE DASHBOARD E GRÁFICOS E EXIBIR**
 """
 
-pip install -q streamlit
+
 npm install localtunnel
 
 import urllib
