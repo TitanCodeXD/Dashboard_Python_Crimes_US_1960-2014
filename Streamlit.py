@@ -10,7 +10,7 @@ Original file is located at
 """
 
 
-npm install localtunnel
+
 
 import urllib
 
