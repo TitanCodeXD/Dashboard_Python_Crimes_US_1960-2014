@@ -18,7 +18,7 @@ print("SENHA/Enpoint IP para o túnel local:",urllib.request.urlopen('https://ip
 
 
 import streamlit as st
-import graficos
+import graficos *
 
 st.set_page_config(layout='wide')
 st.title("Dashboard de Crimes nos Estados Unidos 1960 - 2014  :gun: :mag:")
