@@ -24,6 +24,7 @@ df = pd.read_csv(caminho_arquivo)
 total_crimes = "{:,}".format(df['Total'].sum())
 #print("Total de crimes:", total_crimes)
 
+df['Ano'] = pd.to_datetime(df['Ano'], format='%Y')
 df['Ano'] = df['Ano'].dt.strftime('%Y')
 #print(df)
 
