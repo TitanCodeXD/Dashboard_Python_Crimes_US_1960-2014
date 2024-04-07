@@ -92,10 +92,10 @@ with aba4:
   gerar_graficos_pizza_violentos(df_decadas_violentos)
 
 with aba5:
-  st.plotly_chart(grafico_crimes_populacao, use_container_width=True)
-
-with aba6:
  gerar_grafico_pizza2(df)
+    
+with aba6:
+  st.plotly_chart(grafico_crimes_populacao, use_container_width=True)
 
 with aba7:
   st.plotly_chart(grafico_crimes_por_decada, use_container_width=True)
