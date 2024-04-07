@@ -5,13 +5,18 @@ from graficos import *
 st.set_page_config(layout='wide')
 st.title("Dashboard de Crimes nos Estados Unidos 1960 - 2014  :gun: :mag:")
 
-st.sidebar.title('Filtro de Ano :round_pushpin:')
-filtro_ano = st.sidebar.multiselect(
-'Ano',
-df['Ano'].unique(),
-)
-if filtro_ano:
-  df = df[df['Ano'].isin(filtro_ano)]
+st.sidebar.title('Filtro de Violência :boom:')
+filtro_violencia = st.sidebar.checkbox('Violência acima de 500.000')
+
+
+if filtro_violencia:
+    df = df[df['Violento'] > 1000000]
+
+st.sidebar.title('Filtro Top 10 ano com mais Crimes no Total :arrow_up:')
+filtro_top10_total = st.sidebar.checkbox('Mostrar apenas os 10 maiores valores de Total')
+
+if filtro_top10_total:
+    df = df.nlargest(10, 'Total')
 
 
 aba1, aba2, aba3, aba4, aba5, aba6 = st.tabs(['Dataset', 'Crimes por Ano','Porcentagem de Crimes por todo o Período em Décadas', 'Crimes Violentos','População x Crimes','Década mais perigosa'])
@@ -45,7 +50,13 @@ with aba1:
   st.markdown("- **Propriedade**: Total de Crimes à Propriedade (Soma de Furto_Residencial, Furto_Roubo_Geral, Roubo_Veículo)")
   st.markdown("- **Total**:  Total de Crimes no Geral naquele Ano (Soma de Violento e Propriedade)")
   st.markdown("- **Link Base de Dados**:  [US_Crime_Rates_1960_2014](https://www.kaggle.com/datasets/mahmoudshogaa/us-crime-rates-1960-2014/data)")
-  st.dataframe(df[colunas_para_exibir])
+
+  anos_unicos = df['Ano'].dt.year.unique()
+  ano_minimo = int(min(anos_unicos))
+  ano_maximo = int(max(anos_unicos))
+  ano_inicio, ano_fim = st.slider('Selecione um intervalo de anos', ano_minimo, ano_maximo, (ano_minimo, ano_maximo))
+  df_filtrado = df[(df['Ano'].dt.year >= ano_inicio) & (df['Ano'].dt.year <= ano_fim)]
+  st.dataframe(df_filtrado[colunas_para_exibir])
 
 with aba2:
  coluna1, coluna2, coluna3 = st.columns(3)
