@@ -6,7 +6,7 @@ st.set_page_config(layout='wide')
 st.title("Dashboard de Crimes nos Estados Unidos 1960 - 2014  :gun: :mag:")
 
 
-st.sidebar.title('Filtro 10 anos mais Criminos :bar_chart: ')
+st.sidebar.title('Filtro 10 anos mais Criminosos :bar_chart: ')
 filtro_top10_total = st.sidebar.checkbox('Mostrar apenas os 10 maiores valores de Total')
 
 if filtro_top10_total:
