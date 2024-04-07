@@ -19,7 +19,7 @@ if filtro_top10_total:
     df = df.nlargest(10, 'Total')
 
 
-aba1, aba2, aba3, aba4, aba5, aba6, aba7 = st.tabs(['Dataset', 'Crimes por Ano','Porcentagem de Crimes por todo o Período em Décadas', 'Crimes Violentos','População X Crimes', 'Propriedade X Violência','Década mais perigosa'])
+aba1, aba2, aba3, aba4, aba5, aba6, aba7 = st.tabs(['Dataset', 'Crimes por Ano','Porcentagem de Crimes por Década', 'Crimes Violentos por Década','População X Crimes', 'Propriedade X Violência','Década mais perigosa'])
 
 
 colunas_para_exibir = ['Ano', 'Populacao', 'Total', 'Violento', 'Propriedade', 'Homicidio', 'Estupro', 'Roubo_Residencia', 'Assalto_Agravante', 
