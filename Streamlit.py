@@ -5,18 +5,20 @@ from graficos import *
 st.set_page_config(layout='wide')
 st.title("Dashboard de Crimes nos Estados Unidos 1960 - 2014  :gun: :mag:")
 
-st.sidebar.title('Filtro de Violência :knife:')
-filtro_violencia = st.sidebar.checkbox('Violência acima de 1.000.000')
 
-
-if filtro_violencia:
-    df = df[df['Violento'] > 1000000]
-
-st.sidebar.title('Filtro 10 anos mais Criminos :arrow_up:')
+st.sidebar.title('Filtro 10 anos mais Criminos :bar_chart: ')
 filtro_top10_total = st.sidebar.checkbox('Mostrar apenas os 10 maiores valores de Total')
 
 if filtro_top10_total:
     df = df.nlargest(10, 'Total')
+    
+st.sidebar.title('Filtro de Violência :knife:')
+filtro_violencia = st.sidebar.checkbox('Violência acima de 1.000.000')
+
+if filtro_violencia:
+    df = df[df['Violento'] > 1000000]
+
+
 
 
 aba1, aba2, aba3, aba4, aba5, aba6, aba7 = st.tabs(['Dataset', 'Crimes por Ano','Porcentagem de Crimes por Década', 'Crimes Violentos por Década','População X Crimes', 'Propriedade X Violência','Década mais perigosa'])
