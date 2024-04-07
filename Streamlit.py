@@ -22,7 +22,7 @@ colunas_para_exibir = ['Ano', 'Populacao', 'Total', 'Violento', 'Propriedade', '
 
 def gerar_graficos_pizza1(df_decadas):
     for decada, dados_decada in df_decadas.iterrows():
-        labels = ['Propriedade', 'Homicidio', 'Estupro', 'Roubo_Residencia', 
+        labels = ['Homicidio', 'Estupro', 'Roubo_Residencia', 
                   'Assalto_Agravante', 'Furto_Residencia', 'Furto_Roubo_Geral', 'Roubo_Veiculo']
         sizes = dados_decada[[col + '_Porcentagem' for col in labels]].tolist()
         fig = px.pie(names=labels, values=sizes)
