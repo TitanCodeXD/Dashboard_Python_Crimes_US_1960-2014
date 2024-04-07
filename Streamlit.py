@@ -44,6 +44,7 @@ with aba1:
   st.markdown("- **Violento**: Total de Crimes violentos naquele Ano (Soma de Homicídio, Estupro, Roubo_Residência e Assalto_Agravante)")
   st.markdown("- **Propriedade**: Total de Crimes à Propriedade (Soma de Furto_Residencial, Furto_Roubo_Geral, Roubo_Veículo)")
   st.markdown("- **Total**:  Total de Crimes no Geral naquele Ano (Soma de Violento e Propriedade)")
+  st.markdown("- **Link Base de Dados**:  [US_Crime_Rates_1960_2014](https://www.kaggle.com/datasets/mahmoudshogaa/us-crime-rates-1960-2014/data)")
   st.dataframe(df[colunas_para_exibir])
 
 with aba2:
