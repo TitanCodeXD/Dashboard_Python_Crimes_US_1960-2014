@@ -19,7 +19,7 @@ if filtro_top10_total:
     df = df.nlargest(10, 'Total')
 
 
-aba1, aba2, aba3, aba4, aba5, aba6 = st.tabs(['Dataset', 'Crimes por Ano','Porcentagem de Crimes por todo o Período em Décadas', 'Crimes Violentos','População x Crimes','Década mais perigosa'])
+aba1, aba2, aba3, aba4, aba5, aba6, aba7 = st.tabs(['Dataset', 'Crimes por Ano','Porcentagem de Crimes por todo o Período em Décadas', 'Crimes Violentos','População X Crimes', 'Propriedade X Violência','Década mais perigosa'])
 
 
 colunas_para_exibir = ['Ano', 'Populacao', 'Total', 'Violento', 'Propriedade', 'Homicidio', 'Estupro', 'Roubo_Residencia', 'Assalto_Agravante', 
@@ -34,6 +34,19 @@ def gerar_graficos_pizza1(df_decadas):
         fig.update_traces(textinfo='percent+label')
         fig.update_layout(title=f'Porcentagem dos Crimes na Década de {decada.left.year}s', height=700, width=1100)
         st.plotly_chart(fig)
+
+def gerar_grafico_pizza2(df):
+    total_propriedade = df['Propriedade'].sum()
+    total_violento = df['Violento'].sum()
+    total_crimes = total_propriedade + total_violento
+
+    labels = ['Propriedade', 'Violento']
+    sizes = [total_propriedade / total_crimes * 100, total_violento / total_crimes * 100]
+
+    fig = px.pie(names=labels, values=sizes)
+    fig.update_traces(textinfo='percent+label')
+    fig.update_layout(title='Porcentagem de Crimes Propriedade e Violentos (Total)', height=700, width=1100)
+    st.plotly_chart(fig)
 
 def gerar_graficos_pizza_violentos(df_decadas_violentos):
     for decada, dados_decada in df_decadas_violentos.iterrows():
@@ -80,6 +93,9 @@ with aba5:
   st.plotly_chart(grafico_crimes_populacao, use_container_width=True)
 
 with aba6:
+ gerar_grafico_pizza2(df)
+
+with aba7:
   st.plotly_chart(grafico_crimes_por_decada, use_container_width=True)
 
 
