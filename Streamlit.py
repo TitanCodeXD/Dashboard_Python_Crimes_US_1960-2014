@@ -1,6 +1,6 @@
 
 import streamlit as st
-from graficos.py import *
+from graficos import *
 
 st.set_page_config(layout='wide')
 st.title("Dashboard de Crimes nos Estados Unidos 1960 - 2014  :gun: :mag:")
