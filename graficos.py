@@ -76,7 +76,7 @@ for col in ['Propriedade', 'Homicidio', 'Estupro', 'Roubo_Residencia',
     df[col + '_Porcentagem'] = (df[col] / df['Total_Crimes']) * 100
 
 # Representando por décadas, mas antes vamos usar o cut() para formatar como será lido o a coluna Ano, para ficar apenas os anos, desconsiderando dias e mees, nossa base possui apenas os anos
-df['Decada'] = pd.cut(df['Ano'], bins=pd.interval_range(start=df['Ano'].min(), end=df['Ano'].max(), freq='10Y'))
+df['Decada'] = pd.cut(df['Ano'], bins=pd.interval_range(start=df['Ano'].min(), end=df['Ano'].max(), freq='10YE'))
 
 # Agrupar os dados por década e calcular a média das porcentagens de cada tipo de crime
 df_decadas = df.groupby('Decada').mean()
@@ -98,7 +98,7 @@ def gerar_graficos_pizza(df_decadas):
 #   ^ Comentando tudo com hashtag pois com aspas estava bugando
 
 # Calcular a soma de crimes por década
-df['Decada'] = pd.cut(df['Ano'], bins=pd.interval_range(start=df['Ano'].min(), end=df['Ano'].max(), freq='10Y'))
+df['Decada'] = pd.cut(df['Ano'], bins=pd.interval_range(start=df['Ano'].min(), end=df['Ano'].max(), freq='10YE'))
 df_agrupado_decadas = df.groupby('Decada')['Total'].sum().reset_index()
 
 # Converter os intervalos de década em strings
