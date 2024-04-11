@@ -7,10 +7,10 @@ Original file is located at
     https://colab.research.google.com/drive/1Assfw_i8etnNNLwRDgp-Q80YMGOW1xhA
 
 # Código Para gerar os gráficos e dashboards
-"""
-# pip install -r requirements.txt
-pip install plotly
+"""#pip install -r requirements.txt
 
+
+import streamlit as st
 import pandas as pd
 import plotly.express as px
 
