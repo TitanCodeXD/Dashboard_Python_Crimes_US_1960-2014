@@ -22,7 +22,7 @@ df = pd.read_csv(caminho_arquivo)
 
 ### Análise inicial, mostrando a base de dados e explicações iniciais.
 
-#Exibindo logo de início o total de crimes por todo o período
+#Exibindo logo de início o total de crimes por todo o período e formatando dados
 total_crimes = "{:,}".format(df['Total'].sum())
 #print("Total de crimes:", total_crimes)
 
@@ -125,7 +125,7 @@ df['Ano'] = pd.to_datetime(df['Ano'], format='%Y')
 df_agrupado = df.groupby('Ano').agg({'Populacao': 'sum', 'Total': 'sum'}).reset_index()
 
 # Criar o gráfico de linha
-grafico_crimes_populacao = px.line(
+'''grafico_crimes_populacao = px.line(
     df_agrupado,
     x='Ano',
     y=['Populacao', 'Total'],
@@ -133,7 +133,16 @@ grafico_crimes_populacao = px.line(
     range_y=(0, df_agrupado[['Populacao', 'Total']].values.max()),
     color_discrete_sequence=['blue', 'red'],
     title='Total de Crimes e População ao Longo do Tempo'
+)'''
+
+grafico_crimes_populacao = px.bar(
+    df_agrupado,
+    x='Ano',
+    y=['Populacao', 'Total'],
+    color_discrete_sequence=['lightseagreen', 'gold'],
+    title='Total de Crimes e População ao Longo do Tempo'
 )
+
 
 # Atualizar o layout do gráfico
 #grafico_crimes_populacao.update_layout(yaxis_title='Quantidade',xaxis_title='Ano',legend_title='Tipo',hovermode='x unified')

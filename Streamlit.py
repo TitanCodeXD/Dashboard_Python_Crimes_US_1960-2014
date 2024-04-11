@@ -20,7 +20,6 @@ if filtro_violencia:
 
 
 
-
 aba1, aba2, aba3, aba4, aba5, aba6, aba7 = st.tabs(['Dataset', 'Crimes por Ano','Porcentagem de Crimes por Década', 'Crimes Violentos por Década', 'Propriedade X Violência', 'População X Crimes','Década mais perigosa'])
 
 
@@ -74,16 +73,26 @@ with aba1:
   st.dataframe(df_filtrado[colunas_para_exibir])
 
 with aba2:
- coluna1, coluna2, coluna3 = st.columns(3)
- with coluna1:
-      st.metric('Crimes violentos por ano', format_number(df['Violento'].sum()))
-      df_crimes_violentos_por_ano
- with coluna2:
-      st.metric('Crimes de Propriedade por Ano', format_number(df['Propriedade'].sum()))
-      df_crimes_propriedade_por_ano
- with coluna3:
-      st.metric('Total de Crimes por ano', format_number(df['Total'].sum()))
-      df_crimes_por_ano 
+  # Filtro de multiselect para selecionar os anos
+  anos_selecionados = st.multiselect('Selecione o(s) ano(s):', df['Ano'].dt.year.unique())
+
+    # Filtrando o DataFrame com base nos anos selecionados
+  df_filtrado = df[df['Ano'].dt.year.isin(anos_selecionados)]
+
+  
+  coluna1, coluna2, coluna3 = st.columns(3)
+
+  with coluna1:
+        st.metric('Crimes violentos no(s) ano(s) selecionado(s)', format_number(df_filtrado['Violento'].sum()))
+        df_crimes_violentos_por_ano
+
+  with coluna2:
+        st.metric('Crimes de Propriedade no(s) ano(s) selecionado(s)', format_number(df_filtrado['Propriedade'].sum()))
+        df_crimes_propriedade_por_ano
+        
+  with coluna3:
+        st.metric('Total de Crimes no(s) ano(s) selecionado(s)', format_number(df_filtrado['Total'].sum()))
+        df_crimes_por_ano 
 
 with aba3:
   gerar_graficos_pizza1(df_decadas)
